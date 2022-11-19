@@ -14,6 +14,6 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Producer service is running ... !");
-        rabbitMqSender.send("Producer service is running ... !");
+        rabbitMqSender.sendString("Producer service is running ... !");
     }
 }

@@ -18,7 +18,7 @@ public class ProducerController {
 
     @PostMapping(value = "user")
     public String publishUserDetails(@RequestBody User user) {
-        rabbitMqSender.send(user);
+        rabbitMqSender.sendUser(user);
         return message;
     }
 }

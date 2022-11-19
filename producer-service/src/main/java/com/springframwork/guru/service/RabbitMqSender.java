@@ -1,5 +1,6 @@
 package com.springframwork.guru.service;
 
+import com.springframwork.guru.domain.User;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,8 +18,12 @@ public class RabbitMqSender {
     @Value("${spring.rabbitmq.routingkey}")
     private String routingkey;
 
-    public void send(Object object){
-        rabbitTemplate.convertAndSend(exchange,routingkey, object);
+    public void sendString(String string){
+        rabbitTemplate.convertAndSend(exchange,routingkey, string);
+    }
+
+    public void sendUser(User user){
+        rabbitTemplate.convertAndSend(exchange,routingkey, user);
     }
 
 }
